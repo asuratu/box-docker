@@ -23,7 +23,7 @@ RUN apt-get clean \
     && apt-get install -y libonig-dev \
     && docker-php-ext-install mbstring \
     && apt-get install -y libzip-dev \
-    && docker-php-ext-install zip bcmath intl opcache pdo_mysql pcntl
+    && docker-php-ext-install zip bcmath intl opcache pdo_mysql pcntl sockets
 
 # ext redis
 RUN pecl install redis \
@@ -34,7 +34,7 @@ RUN pecl install --configureoptions 'enable-sockets="no" enable-openssl="yes" en
     && docker-php-ext-enable swoole
 
 # composer
-RUN curl https://getcomposer.org/download/1.10.17/composer.phar -o /usr/local/bin/composer \
+RUN curl https://mirrors.aliyun.com/composer/composer.phar -o /usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer
 
 # aliyun mirrors
