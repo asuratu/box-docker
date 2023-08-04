@@ -13,7 +13,7 @@ all:
 
 init:
 	@echo "${COLOR_GREEN}Init ...${COLOR_NORMAL}"
-	@(cd logs;rm -rf laravel-logs;ln -sf ../app/logs laravel-logs)
+	@(cd logs;rm -rf hyperf-logs;ln -sf ../app/logs hyperf-logs)
 	@chmod 0600 ./config/php-fpm/ssh/id_rsa
 	@echo $(DONE)
 
@@ -23,7 +23,7 @@ release:
 	@docker-compose exec php bash -c "./deploy.sh";
 
 update:
-	@docker-compose exec php bash -c "cd current;git pull;make clean";
+	@docker-compose exec php bash -c "cd current;git pull";
 
 update-dev:
 	@docker-compose exec php bash -c "cd current;git checkout develop;git pull;make clean";
