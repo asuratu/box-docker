@@ -19,6 +19,9 @@ init:
 
 clean:
 
+git-init:
+	@docker-compose exec php bash -c "git config pull.rebase false && git config pull.rebase true && git config pull.ff only";
+
 release:
 	@docker-compose exec php bash -c "./deploy.sh";
 
