@@ -84,6 +84,7 @@ services:
         expose:
             - 15672
             - 5672
-        environment:
-            - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
-            - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+        volumes: # 数据卷挂载路径设置,将本机目录映射到容器目录
+            - "./config/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
+            - "./config/rabbitmq/10-default-guest-user.conf:/etc/rabbitmq/conf.d/10-default-guest-user.conf"
+            - "./data/rabbitmq:/var/lib/rabbitmq"
