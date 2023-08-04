@@ -31,6 +31,10 @@ services:
             - "./config/php-fpm/supervisor/conf.d:/etc/supervisor/conf.d/"
             - "./logs/supervisor:/var/log/supervisor"
             - "./logs/php-fpm:/var/log/php-fpm"
+        ports:
+            - "9501:9501"
+            - "9502:9502"
+            - "9503:9503"
         expose:
             - "9501"
             - "9502"
