@@ -26,7 +26,7 @@ release:
 	@docker-compose exec php bash -c "./deploy.sh";
 
 update:
-	@docker-compose exec php bash -c "cd current;git pull;supervisorctl reload";
+	@docker-compose exec php bash -c "cd current;git pull;make clean;supervisorctl reload";
 
 php:
 	@docker-compose exec php env LANG=C.UTF-8 bash;
