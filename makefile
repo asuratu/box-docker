@@ -37,8 +37,11 @@ nginx:
 rabbit:
 	@docker exec -it rabbit /bin/bash;
 
-update-nginx:
+update-docker-nginx:
 	@docker-compose exec nginx bash -c "nginx -s reload";
+
+update-nginx:
+	@nginx -s reload;
 
 restart:
 	@docker-compose restart;
