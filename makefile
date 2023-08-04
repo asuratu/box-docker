@@ -26,16 +26,7 @@ release:
 	@docker-compose exec php bash -c "./deploy.sh";
 
 update:
-	@docker-compose exec php bash -c "cd current;git pull";
-
-update-dev:
-	@docker-compose exec php bash -c "cd current;git checkout develop;git pull;make clean";
-
-update-main:
-	@docker-compose exec php bash -c "cd current;git checkout main;git pull;make clean";
-
-migrate:
-	@docker-compose exec php bash -c "cd current;make migrate";
+	@docker-compose exec php bash -c "cd current;git pull;supervisorctl reload";
 
 php:
 	@docker-compose exec php env LANG=C.UTF-8 bash;
